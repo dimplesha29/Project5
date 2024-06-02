@@ -4,7 +4,6 @@ import IssueModal from "../../pages/IssueModal";
 
 describe("Issue delete", () => {
   beforeEach(() => {
-    cy.wait(10000);
     cy.visit("/");
     cy.url()
       .should("eq", `${Cypress.env("baseUrl")}project/board`)
@@ -25,6 +24,7 @@ describe("Issue delete", () => {
     IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
   });
   it("Should cancel deletion process successfully", () => {
+    cy.wait(10000);
     IssueModal.clickDeleteButton();
     IssueModal.cancelDeletion();
     IssueModal.closeDetailModal();
