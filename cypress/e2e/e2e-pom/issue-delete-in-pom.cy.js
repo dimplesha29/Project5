@@ -4,6 +4,7 @@ import IssueModal from "../../pages/IssueModal";
 
 describe("Issue delete", () => {
   beforeEach(() => {
+    cy.wait(10000);
     cy.visit("/");
     cy.url()
       .should("eq", `${Cypress.env("baseUrl")}project/board`)
