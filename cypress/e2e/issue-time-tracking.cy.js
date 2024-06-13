@@ -22,7 +22,6 @@ describe("Time estimation functionality", () => {
     cy.get('[data-testid="Modal:issue-details"]');
 
   const originalestimatehourselector = '[placeholder="Number"]';
-  //const timetrackingselector = ".sc-dxgOiQ HrhWu";
   const addtime = "10";
   const updatedestimatedTime = "15";
 
@@ -32,17 +31,14 @@ describe("Time estimation functionality", () => {
       .clear()
       .type(addtime)
       .should("have.value", addtime);
-    //cy.get(originalestimatehourselector).should("contain", addtime);
 
     //Add estimated updated time
     cy.get(originalestimatehourselector)
       .clear()
       .type(updatedestimatedTime)
       .should("have.value", updatedestimatedTime);
-    //cy.get(timetrackingselector).should("contain", updatedestimatedTime);
 
     // Remove estimated time
     cy.get(originalestimatehourselector).clear().should("have.value", "");
-    //cy.get(timetrackingselector).should("not.have.value");
   });
 });
